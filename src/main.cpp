@@ -6,31 +6,34 @@ int myFunction(int, int);
 int Eingang1 = 0;
 int Eingang2 = 1;
 int Eingang_Spannung = 6;
+int Eingang_interrrupt = 9;
 int Ausgang_Triac = 3;
-int einschalten = 0;
-int ausschalten = 0;
+int Led1 = 14;
+int Led2 = 15;
 
+int einschalten = 0;
 
 void setup() {
 // Initialisiert Pin 14 (LED1) als output
-pinMode(14, OUTPUT);
+pinMode(Led1, OUTPUT);
+pinMode(Led2, OUTPUT);
 
 pinMode(Eingang1, INPUT);   //Taster zum Einschalten
 pinMode(Eingang2, INPUT);   //Taster zum Ausschalten
-pinMode(Eingang_Spannung, INPUT); //noch nicht belegt
-pinMode(Ausgang_Triac, OUTPUT);   //noch nicht belegt
+pinMode(Eingang_Spannung, INPUT); 
+pinMode(Ausgang_Triac, OUTPUT);  
 }
 
 void loop (){ 
-  int einschalten = digitalRead(Eingang1);
-if(einschalten= 1){
-  digitalWrite(14,HIGH); //Wenn Einschalter gedrückt wird angeschaltet, egal wie Vorzustand
-  delay(1000);           //Bisschen Zeit rumkriegen
+einschalten = digitalRead(Eingang1);
+for (einschalten = 1){
+  digitalWrite(Ausgang_Triac,HIGH);
+  digitalWrite(Led1,HIGH);
+  int Nulldurchgang = 0;
+  for 
 }
-int ausschalten = digitalRead(Eingang2);
-if(ausschalten = 1){
-  digitalWrite(14,LOW); // wenn ausschalter gedrückt wird ausgeschaltet, egal wie Vorzustand
-  delay(1000);          // Bisschen Zeit rumriegen
-}                       // Ohne Tastendruck bleibt die Lampe dauerhaft an/aus, je nach letztem Tastendruck
+
+
 }
+
 
